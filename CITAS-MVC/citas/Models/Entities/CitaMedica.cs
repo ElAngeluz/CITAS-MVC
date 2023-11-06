@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace citas.Models.Entities
 {
@@ -17,6 +18,7 @@ namespace citas.Models.Entities
         public string Codigo { get; set; }
         public DateTime Fecha { get; set; }
 
+        [JsonIgnore]
         public Guid PacienteId { get; set; }
         [ForeignKey(nameof(PacienteId))]
         public virtual Paciente? PacienteNav { get; set; }
